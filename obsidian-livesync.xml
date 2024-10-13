@@ -23,8 +23,8 @@ To understand how to connect Obsidian to obsidian-livesync, you should follow th
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="Container Path 1" Target="/opt/couchdb/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/obsidian-livesync</Config>
-  <Config Name="Container Port 2" Target="5984" Default="5984" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">5984</Config>
+  <Config Name="Container Path 1" Target="/opt/couchdb/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/obsidian-livesync</Config>
+  <Config Name="Container Port 2" Target="5984" Default="5984" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">5984</Config>
   <Config Name="COUCHDB_USER" Target="COUCHDB_USER" Default="admin" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
   <Config Name="COUCHDB_PASSWORD" Target="COUCHDB_PASSWORD" Default="password" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">password</Config>
 </Container>
