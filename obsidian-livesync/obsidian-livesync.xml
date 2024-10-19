@@ -1,30 +1,50 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-  <Name>obsidian-livesync</Name>
-  <Repository>pezhvak/obsidian-livesync</Repository>
-  <Registry>https://hub.docker.com/r/pezhvak/obsidian-livesync/</Registry>
-  <Network>bridge</Network>
-  <MyIP/>
-  <Shell>bash</Shell>
-  <Privileged>false</Privileged>
-  <Support>https://hub.docker.com/r/pezhvak/obsidian-livesync/</Support>
-  <Project/>
-  <Overview>Obsidian-LiveSync provides a Self-Hosted CoudDB backend to the Obsidian-LiveSync plugin.&#xD;
-&#xD;
-To understand how to connect Obsidian to obsidian-livesync, you should follow this excellent instructional video: https://www.youtube.com/watch?v=r4NKCDirm64</Overview>
+  <TemplateURL>https://github.com/gotanaccount/unraid-templates/blob/master/obsidian-livesync/obsidian-livesync.xml</TemplateURL>
+  <Beta>true</Beta>
   <Category>Backup: Productivity:</Category>
+  <Date>2024-10-19</Date>
+  <Name>Obsidian Livesync</Name>
+  <Overview>
+    Obsidian-LiveSync provides a Self-Hosted CoudDB backend to the Obsidian-LiveSync plugin.&#xD;&#xD;To understand how to connect Obsidian to obsidian-livesync, you should follow this excellent instructional video: https://www.youtube.com/watch?v=r4NKCDirm64
+  </Overview>
+  <Repository>gotanaccount/obsidian-livesync</Repository>
+  <Registry>https://hub.docker.com/r/gotanaccount/obsidian-livesync/</Registry>
+  <GitHub>https://github.com/vrtmrz/self-hosted-livesync-server</GitHub>
+  <Project>https://github.com/vrtmrz/self-hosted-livesync-server</Project>
+  <Support>https://github.com/gotanaccount/unraid-templates/</Support>
   <WebUI>http://[IP]:[PORT:5984]/_utils</WebUI>
-  <TemplateURL/>
-  <Icon>https://publish-01.obsidian.md/access/caa27d6312fe5c26ebc657cc609543be/favicon.ico</Icon>
-  <ExtraParams/>
-  <PostArgs/>
-  <CPUset/>
-  <DateInstalled>1728814608</DateInstalled>
+  <Icon>https://raw.githubusercontent.com/gotanaccount/unraid-templates/refs/heads/master/obsidian-livesync/favicon-96x96.png</Icon>
   <DonateText/>
   <DonateLink/>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name>UMASK</Name>
+      <Value>000</Value>
+    </Variable>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/config</HostDir>
+      <ContainerDir>/opt/couchdb/etc</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
   <Requires/>
-  <Config Name="Container Path 1" Target="/opt/couchdb/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/obsidian-livesync</Config>
-  <Config Name="Container Port 2" Target="5984" Default="5984" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">5984</Config>
+  <Config Name="AppData Config Path" Target="/opt/couchdb/data" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/obsidian-livesync</Config>
+  <Config Name="CouchDB _utils Web UI" Target="5984" Default="5984" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">5984</Config>
   <Config Name="COUCHDB_USER" Target="COUCHDB_USER" Default="admin" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
   <Config Name="COUCHDB_PASSWORD" Target="COUCHDB_PASSWORD" Default="password" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">password</Config>
 </Container>

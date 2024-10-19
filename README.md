@@ -1,2 +1,2 @@
 # unraid-templates
-repo for hosting unraid templates
+Central storage for unRAID Templates
